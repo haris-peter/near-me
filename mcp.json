@@ -1,5 +1,8 @@
 {
   "id": "near-me-tool",
-  "name": "Local Government Services Finder",
-  "url": "https://near-me-production.up.railway.app/"
+  "name": "Near Me Tool",
+  "description": "Finds nearby government services and resources using MCP.",
+  "url": "https://near-me-production.up.railway.app/",
+  "tags": ["mcp", "hackathon"],
+  "version": "1.0.0"
 }
