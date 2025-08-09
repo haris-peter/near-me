@@ -9,7 +9,7 @@ import os
 # --------------------------------------------------------------------
 # Configuration & Server ID
 # --------------------------------------------------------------------
-SERVER_ID = os.getenv("MCP_SERVER_ID", "near-me")  # Default ID if not set
+SERVER_ID = os.getenv("MCP_SERVER_ID", "near-me-tool")  # Default ID if not set
 OVERPASS_URL = os.getenv("OVERPASS_URL", "https://overpass-api.de/api/interpreter")
 MAX_RESULTS = int(os.getenv("MAX_RESULTS", 6))
 DEFAULT_RADIUS_KM = float(os.getenv("DEFAULT_RADIUS_KM", 5.0))
