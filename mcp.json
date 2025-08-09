@@ -1,8 +1,47 @@
 {
-  "id": "near-me-tool",
-  "name": "Near Me Tool",
-  "description": "Finds nearby government services and resources using MCP.",
-  "url": "https://near-me-production.up.railway.app/",
-  "tags": ["mcp", "hackathon"],
-  "version": "1.0.0"
+  "name": "near-me-tool",
+  "version": "1.0.0",
+  "description": "Find nearby hospitals, police stations, fire stations, and public offices using OpenStreetMap Overpass API.",
+  "contact": {
+    "name": "Developer",
+    "email": "harisjosinpeter.com"
+  },
+  "tools": [
+    {
+      "name": "find_nearest_hospital",
+      "description": "Find nearby hospitals within a given radius in kilometers.",
+      "parameters": {
+        "latitude": { "type": "number", "description": "Latitude coordinate" },
+        "longitude": { "type": "number", "description": "Longitude coordinate" },
+        "radius_km": { "type": "number", "description": "Search radius in kilometers", "default": 5.0 }
+      }
+    },
+    {
+      "name": "find_nearest_police",
+      "description": "Find nearby police stations within a given radius in kilometers.",
+      "parameters": {
+        "latitude": { "type": "number", "description": "Latitude coordinate" },
+        "longitude": { "type": "number", "description": "Longitude coordinate" },
+        "radius_km": { "type": "number", "description": "Search radius in kilometers", "default": 5.0 }
+      }
+    },
+    {
+      "name": "find_nearest_fire_station",
+      "description": "Find nearby fire stations within a given radius in kilometers.",
+      "parameters": {
+        "latitude": { "type": "number", "description": "Latitude coordinate" },
+        "longitude": { "type": "number", "description": "Longitude coordinate" },
+        "radius_km": { "type": "number", "description": "Search radius in kilometers", "default": 5.0 }
+      }
+    },
+    {
+      "name": "find_nearest_public_office",
+      "description": "Find nearby public offices (e.g., townhalls) within a given radius in kilometers.",
+      "parameters": {
+        "latitude": { "type": "number", "description": "Latitude coordinate" },
+        "longitude": { "type": "number", "description": "Longitude coordinate" },
+        "radius_km": { "type": "number", "description": "Search radius in kilometers", "default": 5.0 }
+      }
+    }
+  ]
 }

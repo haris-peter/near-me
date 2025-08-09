@@ -1,30 +1,23 @@
-# Use a lightweight Python base image
+# Use a slim Python base image
 FROM python:3.11-slim
-
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
 
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies for requests, geopy, and other libs
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
+# Copy dependencies first (for caching)
+COPY requirements.txt .
 
-# Copy requirements first (to leverage Docker layer caching)
-COPY requirements.txt /app/requirements.txt
-
-# Install Python dependencies
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
-COPY . /app
+# Copy the rest of the code
+COPY . .
 
-# Expose the FastAPI port
-EXPOSE 8000
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV MCP_SERVER_ID=near-me-tool
+ENV MAX_RESULTS=6
+ENV DEFAULT_RADIUS_KM=5.0
 
-# Command to run the app
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run the MCP server
+CMD ["python", "server.py"]
